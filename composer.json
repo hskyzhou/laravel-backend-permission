@@ -1,0 +1,22 @@
+{
+    "name": "hskyzhou/laravel-backend-permission",
+    "description": "后后台权限",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "hsky",
+            "email": "xezw211@126.com"
+        }
+    ],
+    "require": {
+        "prettus/l5-repository": "^2.6",
+        "spatie/laravel-permission": "^3.6"
+    },
+    "extra": {
+        "laravel" : {
+            "providers" : [
+                "HskyZhou/LaravelBackendPermission/LaravelBackendPermissionServiceProvider"
+            ]
+        }
+    }
+}
