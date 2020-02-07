@@ -12,6 +12,11 @@
         "prettus/l5-repository": "^2.6",
         "spatie/laravel-permission": "^3.6"
     },
+    "autoload": {
+        "psr-4": {
+            "HskyZhou\\LaravelBackendPermission\\": "."
+        }
+    },
     "extra": {
         "laravel" : {
             "providers" : [
