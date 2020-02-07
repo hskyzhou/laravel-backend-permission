@@ -15,7 +15,7 @@
     "extra": {
         "laravel" : {
             "providers" : [
-                "HskyZhou/LaravelBackendPermission/LaravelBackendPermissionServiceProvider"
+                "HskyZhou\\LaravelBackendPermission\\LaravelBackendPermissionServiceProvider"
             ]
         }
     }
