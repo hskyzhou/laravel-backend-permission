@@ -17,6 +17,18 @@ class RoleResource extends JsonResource
      */
     public function toArray($request)
     {
-        return $this->getResourceDatas('laravel-backend-permission.role.fields');
+        $permissions = $this->permissions->map(function ($item, $key) {
+            return [
+                'id' => $item->id,
+                'name' => $item->name,
+                'show_name' => $item->name
+            ];
+        });
+        $data = $this->getResourceDatas('laravel-backend-permission.role.fields');
+
+        return array_merge($data, [
+            'permissions' => $permissions
+        ]);
+
     }
 }

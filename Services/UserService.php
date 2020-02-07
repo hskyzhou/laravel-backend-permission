@@ -19,7 +19,7 @@ class UserService
 	 */
 	public function getUserListPaginate($searchs = [])
 	{
-		return $this->userRepository->searchByFields($searchs)->paginate();
+		return $this->userRepository->with(['roles', 'permissions'])->searchByFields($searchs)->paginate();
 	}
 
 	/**
@@ -29,7 +29,7 @@ class UserService
 	public function userInfo($userId)
 	{
 		try {
-			$info = $this->userRepository->find($userId);
+			$info = $this->userRepository->with(['roles', 'permissions'])->find($userId);
 
 			return $info;
 		} catch (\Exception $e) {

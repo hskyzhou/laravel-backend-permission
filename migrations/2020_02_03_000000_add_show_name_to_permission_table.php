@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddShowNameToRoleTable extends Migration
+class AddShowNameToPermissionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AddShowNameToRoleTable extends Migration
      */
     public function up()
     {
-        Schema::table('roles', function (Blueprint $table) {
+        Schema::table('permissions', function (Blueprint $table) {
             $table->string('show_name')->default('')->comment("角色显示名称");
         });
     }
@@ -25,7 +25,7 @@ class AddShowNameToRoleTable extends Migration
      */
     public function down()
     {
-        Schema::table('roles', function (Blueprint $table) {
+        Schema::table('permissions', function (Blueprint $table) {
             $table->dropColumn('show_name');
         });
     }

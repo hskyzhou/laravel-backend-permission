@@ -10,6 +10,10 @@ use HskyZhou\LaravelBackendPermission\Controller\Controller;
 
 /*用户详情*/
 class StoreController extends Controller {
+
+	protected $moduleName = 'permission';
+	protected $controllerName = 'store';
+	
 	/**
 	 * 用户详情
 	 * @return [type] [description]

@@ -19,7 +19,7 @@ class RoleService
 	 */
 	public function getRoleListPaginate($searchs = [])
 	{
-		return $this->roleRepository->searchByFields($searchs)->paginate();
+		return $this->roleRepository->with(['permissions'])->searchByFields($searchs)->paginate();
 	}
 
 	/**
@@ -29,7 +29,7 @@ class RoleService
 	public function roleInfo($id)
 	{
 		try {
-			$info = $this->roleRepository->findOrFail($id);
+			$info = $this->roleRepository->with(['permissions'])->findOrFail($id);
 
 			return $info;
 		} catch (\Exception $e) {

@@ -17,7 +17,7 @@ class IndexCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-            'menus' => $this->collection,
+            'list' => $this->collection,
         ];
     }
 }

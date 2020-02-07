@@ -17,6 +17,27 @@ class UserResource extends JsonResource
      */
     public function toArray($request)
     {
-        return $this->getResourceDatas('laravel-backend-permission.user.fields');
+        $roles = $this->roles->map(function ($item, $key) {
+            return [
+                'id' => $item->id,
+                'name' => $item->name,
+                'show_name' => $item->show_name,
+            ];
+        });
+
+        $permissions = $this->permissions->map(function ($item, $key) {
+            return [
+                'id' => $item->id,
+                'name' => $item->name,
+                'show_name' => $item->show_name,
+            ];
+        });
+
+        $data = $this->getResourceDatas('laravel-backend-permission.user.fields');
+
+        return array_merge($data, [
+            'roles' => $roles,
+            'permissions' => $permissions
+        ]);
     }
 }

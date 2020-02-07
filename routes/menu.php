@@ -1,14 +1,16 @@
 <?php
 
 Route::group(['namespace' => 'Menu', 'prefix' => 'menu'], function () {
-	/*用户列表*/
+	/*菜单列表*/
 	Route::post('index', 'IndexController');
-	/*用户详情*/
+	/*菜单详情*/
 	Route::post('info', 'InfoController');
-	/*用户保存*/
+	/*菜单保存*/
 	Route::post('store', 'StoreController');
-	/*用户修改*/
+	/*菜单修改*/
 	Route::post('update', 'UpdateController');
-	/*用户删除*/
+	/*菜单删除*/
 	Route::post('delete', 'DeleteController');
+	// 菜单排序
+	Route::post('sort', 'SortController');
 });

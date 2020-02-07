@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddShowNameToRoleTable extends Migration
+class AddLastLoginIpToUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddShowNameToRoleTable extends Migration
      */
     public function up()
     {
-        Schema::table('roles', function (Blueprint $table) {
-            $table->string('show_name')->default('')->comment("角色显示名称");
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('last_login_ip')->default('')->comment("最后一次登录时间");
         });
     }
 
@@ -25,8 +25,8 @@ class AddShowNameToRoleTable extends Migration
      */
     public function down()
     {
-        Schema::table('roles', function (Blueprint $table) {
-            $table->dropColumn('show_name');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('last_login_ip');
         });
     }
 }

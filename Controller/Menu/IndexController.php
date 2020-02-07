@@ -22,7 +22,7 @@ class IndexController extends Controller {
 		/*获取用户列表*/
 		$list = $service->getMenuListPaginate();
 
-		$data = new IndexCollection($list);
+		$data = $service->dealRecursive($list, $list);
 
 		return response()->hskyApi($data);
 	}

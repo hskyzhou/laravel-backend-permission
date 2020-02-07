@@ -36,7 +36,7 @@ return [
 					'required' => '参数异常'
 				],
 			],
-			'name' => [
+			'title' => [
 				'resource' => true,
 				'rules' => 'required',
 				'messages' => [
@@ -46,13 +46,7 @@ return [
 			'icon' => [
 				'resource' => true,
 			],
-			'component' => [
-				'resource' => true,
-			],
-			'parent_component' => [
-				'resource' => true,
-			],
-			'uri' => [
+			'url' => [
 				'resource' => true,
 			],
 			'permission' => [
@@ -64,6 +58,9 @@ return [
 			'updated_at' => [
 				'resource' => true,
 			],
+			'parent_id' => [
+				'resource' => false,
+			],
 		],
 		'controllers' => [
 			'info' => [
@@ -74,11 +71,14 @@ return [
 			],
 			'index' => [],
 			'store' => [
-				'params' => ['name', 'icon', 'component', 'parent_component', 'uri', 'permission']
+				'params' => ['title', 'icon', 'url', 'permission', 'parent_id']
 			],
 			'update' => [
 				'key_id' => 'id',
-				'params' => ['name', 'icon', 'component', 'parent_component', 'uri', 'permission']
+				'params' => ['title', 'icon', 'url', 'permission', 'parent_id']
+			],
+			'sort' => [
+				'params' => 'menu'
 			],
 		],
 	],
@@ -100,8 +100,14 @@ return [
 					'required' => '名称不能为空'
 				],
 			],
-			'guard_name' => [
+			'show_name' => [
 				'resource' => true,
+			],
+			'description' => [
+				'resource' => true,
+			],
+			'guard_name' => [
+				'resource' => false,
 			],
 			'created_at' => [
 				'resource' => true,
@@ -126,11 +132,11 @@ return [
 				'key_id' => 'id'
 			],
 			'store' => [
-				'params' => ['name']
+				'params' => ['name', 'show_name', 'description']
 			],
 			'update' => [
 				'key_id' => 'id',
-				'params' => ['name']
+				'params' => ['name', 'show_name', 'description']
 			],
 		],
 	],
@@ -153,9 +159,12 @@ return [
 				],
 			],
 			'guard_name' => [
-				'resource' => true,
+				'resource' => false,
 			],
 			'show_name' => [
+				'resource' => true,
+			],
+			'description' => [
 				'resource' => true,
 			],
 			'created_at' => [
@@ -164,6 +173,9 @@ return [
 			'updated_at' => [
 				'resource' => true,
 			],
+			'permissions' => [
+				'resource' => true,
+			]
 		],
 		'controllers' => [
 			'index' => [
@@ -185,11 +197,11 @@ return [
 				'key_id' => 'id'
 			],
 			'store' => [
-				'params' => ['name', 'show_name']
+				'params' => ['name', 'show_name', 'description']
 			],
 			'update' => [
 				'key_id' => 'id',
-				'params' => ['name', 'show_name']
+				'params' => ['name', 'show_name', 'description']
 			],
 		]
 	],
@@ -232,6 +244,18 @@ return [
 				'resource' => true,
 			],
 			'updated_at' => [
+				'resource' => true,
+			],
+			'last_login_at' => [
+				'resource' => true,
+			],
+			'last_login_ip' => [
+				'resource' => true,
+			],
+			'status' => [
+				'resource' => true,
+			],
+			'status_label' => [
 				'resource' => true,
 			],
 		],

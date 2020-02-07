@@ -17,7 +17,7 @@ class IndexCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-            'roles' => $this->collection,
+            'list' => $this->collection,
         ];
     }
 }

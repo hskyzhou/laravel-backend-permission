@@ -26,10 +26,18 @@ class InfoController extends Controller {
 		/*获取用户列表*/
 		$info = $service->menuInfo($id);
 
-		$info = new Resource($info);
+		$data = (new Resource($info))->toArray($request);
+
+		$parentMenu = $info->parentMenu->first();
+
+		if (!is_null($parentMenu)) {
+			$data['parent_menu'] = (new Resource($parentMenu))->toArray($request);
+		} else {
+			$data['parent_menu'] = null;
+		}
 
 		$data = [
-			'info' => $info
+			'info' => $data
 		];
 
 		return response()->hskyApi($data);
