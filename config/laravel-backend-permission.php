@@ -226,10 +226,9 @@ return [
 			'email' => [
 				'resource' => true,
 				'rules' => (function () {
-					$id = request('id');
 					return [
 						'required',
-						\Illuminate\Validation\Rule::unique('users')->ignore($id),
+						\Illuminate\Validation\Rule::unique('users')->ignore(request('id')),
 					];
 				})(),
 				'messages' => [

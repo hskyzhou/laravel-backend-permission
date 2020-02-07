@@ -21,14 +21,14 @@ class LaravelBackendPermissionServiceProvider extends ServiceProvider {
         $this->loadRoutesFrom(__DIR__ . '/routes/index.php');
 
         // 数据库迁移
-        $this->loadMigrationsFrom(__DIR__ . '/migrations/2020_02_03_000000_create_menu_table.php');
-        $this->loadMigrationsFrom(__DIR__ . '/migrations/2020_02_03_000000_add_show_name_to_role_table.php');
-        $this->loadMigrationsFrom(__DIR__ . '/migrations/2020_02_03_000000_add_show_name_to_permission_table.php');
-        $this->loadMigrationsFrom(__DIR__ . '/migrations/2020_02_03_000000_add_description_to_role_table.php');
-        $this->loadMigrationsFrom(__DIR__ . '/migrations/2020_02_03_000000_add_description_to_permission_table.php');
-        $this->loadMigrationsFrom(__DIR__ . '/migrations/2020_02_03_000000_add_deleted_at_to_user_table.php');
-        $this->loadMigrationsFrom(__DIR__ . '/migrations/2020_02_03_000000_add_last_login_at_to_user_table.php');
-        $this->loadMigrationsFrom(__DIR__ . '/migrations/2020_02_03_000000_add_last_login_ip_to_user_table.php');
+        // $this->loadMigrationsFrom(__DIR__ . '/migrations/2020_02_03_000000_create_menu_table.php');
+        // $this->loadMigrationsFrom(__DIR__ . '/migrations/2020_02_03_000000_add_show_name_to_role_table.php');
+        // $this->loadMigrationsFrom(__DIR__ . '/migrations/2020_02_03_000000_add_show_name_to_permission_table.php');
+        // $this->loadMigrationsFrom(__DIR__ . '/migrations/2020_02_03_000000_add_description_to_role_table.php');
+        // $this->loadMigrationsFrom(__DIR__ . '/migrations/2020_02_03_000000_add_description_to_permission_table.php');
+        // $this->loadMigrationsFrom(__DIR__ . '/migrations/2020_02_03_000000_add_deleted_at_to_user_table.php');
+        // $this->loadMigrationsFrom(__DIR__ . '/migrations/2020_02_03_000000_add_last_login_at_to_user_table.php');
+        // $this->loadMigrationsFrom(__DIR__ . '/migrations/2020_02_03_000000_add_last_login_ip_to_user_table.php');
     }
 
     /**
@@ -42,6 +42,10 @@ class LaravelBackendPermissionServiceProvider extends ServiceProvider {
         $this->publishes([
             __DIR__ . '/config/laravel-backend-permission.php' => config_path('laravel-backend-permission.php')
         ]);
+
+        $this->publishes([
+                __DIR__.'/migrations' => database_path('migrations'),
+            ], 'laravel-backend-permission-migrations');
 
         $this->app->bind(\HskyZhou\LaravelBackendPermission\Repositories\Interfaces\UserRepository::class, \HskyZhou\LaravelBackendPermission\Repositories\Eloquents\UserRepositoryEloquent::class);
         $this->app->bind(\HskyZhou\LaravelBackendPermission\Repositories\Interfaces\RoleRepository::class, \HskyZhou\LaravelBackendPermission\Repositories\Eloquents\RoleRepositoryEloquent::class);
