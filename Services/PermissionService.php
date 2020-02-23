@@ -23,6 +23,15 @@ class PermissionService
 	}
 
 	/**
+	 * 获取总记录数
+	 * @return [type] [description]
+	 */
+	public function getCount($searchs)
+	{
+		return $this->permissionRepository->searchByFields($searchs)->count();
+	}
+
+	/**
 	 * 获取用户详情
 	 * @return [type] [description]
 	 */

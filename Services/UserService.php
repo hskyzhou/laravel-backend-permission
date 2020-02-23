@@ -23,6 +23,15 @@ class UserService
 	}
 
 	/**
+	 * 获取总条数
+	 * @return [type] [description]
+	 */
+	public function getCount($searchs)
+	{
+		return $this->userRepository->searchByFields($searchs)->count();
+	}
+
+	/**
 	 * 获取用户详情
 	 * @return [type] [description]
 	 */
